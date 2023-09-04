@@ -87,6 +87,9 @@ a{
 .faded-text{
     /* this text is not selectable */
     user-select: none;
+    
+    /* to get this at the bottom of the hero section. On doing absolute, it is happening that way because of bottom and left properties that we have given */
+    position: absolute;
 
     font-size: 7em;
     color: rgb(231,231,231);
@@ -161,3 +164,158 @@ a{
     border: solid 3px var(--bgOrange);
     color: black;
 }
+
+/* hero section right part  */
+.hero-section-right{
+    position: relative;
+    /* need other images to overlap so nearest ancestor has to be non static */
+
+}
+.absolute{
+    position: absolute;
+}
+
+.user-image{
+    padding: 2.5rem;
+    filter: grayscale(1);
+    /* size increaase toh grayscale hat gaya & jab chhoti hui toh grayscale aa gaya  */
+    transition: all;
+    animation: scaleImage 5s linear infinite;
+
+    /* jo bhi images iske upar aayegi toh user image ko background me dalna padega. Hence use z-index */
+}
+.user-image img{
+    z-index: -9;
+}
+@keyframes scaleImage {
+    0%{
+        /* this is the stage where animation starts and image chhoti hai  */
+        filter: grayscale(0);
+        transform: scale(1);
+    }
+    50%{
+        /* this is the stage when image puri badi ho gayi hai  */
+        transform: scale(1.1);
+        filter: grayscale(1);
+        
+    }
+    100%{
+        /* jab pura bada ho gaya uske baad chhota bhi hoga  */
+        transform: scale(1);
+        filter: grayscale(0);
+        box-shadow: 3px 3px 10px black;
+    }
+}
+
+.icon-dots{
+    z-index: 9;
+    bottom: -1rem;
+    right: 0;
+    animation-name: dotsAnimation;
+    animation-iteration-count: infinite;
+    /* moves up and down  so translateY */
+}
+@keyframes dotsAnimation {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.icon-cube{
+    /* positioned at top right, is above the user image so need z-index, add animation  */
+    z-index: 9;
+    top: -0.8em;
+    right: 1em;
+    animation-name: cubeRotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes cubeRotate {
+    /* rotates and moves in y direction also  */
+    0%{
+        transform: rotateY(0deg) translateY(0px);
+    }
+    50%{
+        transform: rotateY(180deg) translateY(-12px);
+    }
+    100%{
+        transform: rotateY(360deg) translateY(0px);
+    }
+}
+
+.icon-circle{
+    z-index: 9;
+    left: 0;
+    bottom: 0;
+    animation-name: shakeEffect;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes shakeEffect {
+    0%{
+        left: 0;
+        bottom: 0;
+    }
+    50%{
+        left: 5%;
+        bottom: 10%;
+    }
+    100%{
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.icon-zigzag{
+    z-index: 9;
+    top: 1.5em;
+    left: -0.3em;
+    animation-name: zigzagAnimation;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+@keyframes zigzagAnimation {
+    0%{
+        left: 0;
+        top: 0;
+    }
+    50%{
+        left: 5%;
+        top: 2%;
+    }
+    100%{
+        left: 0;
+        top: 0;
+    }
+}
+
+.icon-plus{
+    z-index: 9;
+    top: -0.8rem;
+    left: 50%;
+    animation-name: shakeEffectPlus;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+@keyframes shakeEffectPlus {
+    0%{
+        top: 0;
+    }
+    50%{
+        left: 48%;
+        top: 3%;
+    }
+    100%{
+        top: 0;
+    }
+}
+/* hero section ends here  */
