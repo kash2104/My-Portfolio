@@ -351,7 +351,8 @@ a{
 .project-card{
     width: 90%;
     height: 550px;
-    background-image: url(./images/projects/Project1.png);
+    /* background-image: url(./images/projects/Project1.png); */
+
 
     /* need the image to fit the entire background  */
     background-size: cover;
@@ -411,7 +412,15 @@ a{
     font-weight: 600;
     color: white;
     z-index: 10;
-    
+
+    /* initially project number nhi dikhna chahiye */
+    /* the number should be displayed when i hover on the card  */
+    display: none; 
+
+    /* instead of display i can use opacity as well  */
+}
+.project-card:hover .project-number{
+    display: block;
 }
 .project-number-right{
     right: -40px;
@@ -443,3 +452,72 @@ a{
 .project-content-right{
     right: 10%;    
 }
+
+/* getting started with the skills of the card */
+.project-skills-container{
+    /* we want to use flexwrap so we need to define its width  */
+    width: 60%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.project-skill{
+    width: 40px;
+}
+.project-heading{
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 3rem;
+}
+.project-subheading{
+    width: 70%;
+    font-size: 16px;
+    font-style: italic;
+}
+.btn-grp{
+    /* want all three in one line so need flex  */
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+}
+.btn-project:hover{
+    border: none;
+}
+.icon{
+    /* when going on github and livelink icon the cursor should change to hand  */
+    cursor: pointer;
+    color: white;
+    font-size: 35px;
+
+    /* colour ek dam se change ho rha hai so need transition  */
+    transition: all 0.4s;
+}
+.icon:hover{
+    color: var(--bgOrange);
+}
+
+/* card par kahi bhi hover karne se uske andar ka content scale ho rha hai  */
+.project-card:hover .project-content{
+    transform: scale(1.1);
+}
+/* doing it for the all the project cards */
+#project1{
+    background: url(./images/projects/Project1.png);
+    background-size: cover;
+}
+#project2{
+    margin-left: 120px;
+    background: url(./images/projects/Project2.png);
+    background-size: cover;
+}
+#project3{
+    background: url(./images/projects/Project3.png);
+    background-size: cover;
+}
+#project4{
+    margin-left: 120px;
+    background: url(./images/projects/Project4.png);
+    background-size: cover;
+}
+
+/* project section ends here  */
