@@ -521,3 +521,88 @@ a{
 }
 
 /* project section ends here  */
+
+
+/* tech stack section starts here  */
+.skills-container{
+    /* faded text hai voh bottom right me hai toh parent ki position change karni padegi  */
+    position: relative;
+    
+    /* content and techstack ki photos side by side lagana hai  */
+    display: flex;
+
+    padding: 5rem;
+    margin: 10rem auto;
+    gap: 30px;
+}
+.skill-container-left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.skill-container-right{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    /* images ko overlap karna padega  */
+    position: relative;
+    gap: 2rem;
+}
+.skill-fade-text{
+    position: absolute;
+    font-size: 15em;
+    font-style: bold;
+    color: rgb(231,231,231);
+    bottom: -34.5%;
+    right: -12.5%;
+    user-select: none;
+    overflow-y: hidden;
+}
+.blob-style{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* blob icons ke niche hai toh  */
+    z-index: -5;
+
+    transform: translate(-50%, -50%);
+    animation: blobAnimate 3s linear infinite;
+}
+@keyframes blobAnimate {
+    50%{
+        top: 54%;
+        left: 46%;
+    }
+}
+.skills-logo{
+    width: 90px;
+    transition: all 0.5s;
+}
+/* skills-logo par hover karne par scale karna hai  */
+.skills-logo:hover{
+    transform: scale(1.2);
+}
+.skill-heading{
+    font-size: 50px;
+    font-style: bold;
+    color: var(--bgOrange);
+    line-height: 50px;
+}
+.caps{
+    font-size: 90px;
+}
+.skill-subHeading{
+    margin-top: 1rem;
+    width: 85%;
+
+    /* jitni bhi width hai usko pure ko cover kar dega */
+    text-align: align;
+}
+.skill-subHeading p{
+    margin: 15px 0;
+}
+
+/* tech stack section ends here  */
